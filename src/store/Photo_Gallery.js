@@ -163,14 +163,13 @@ export const usePhoto_Gallery = defineStore("Photo_Gallery", {
                 this.loading = true;
                 if (this.Photo.image) {
                     // Step 1: Upload the image and get the download URL
-                    const imageUrl = await this.upload_Image(this.Photo.image);
+                    const imageUrl = await this.uploadImage(this.Photo.image); // Use uploadImage here
                     // Get current local time
                     const currentTime = Timestamp.now();
 
                     // Step 2: Add a document to the "Photos" collection in Firestore
                     const docRef = await addDoc(collection(db, "Photos"), {
                         time: currentTime,
-
                         image: imageUrl,
                         type: this.type,
                         File_type: this.types,
