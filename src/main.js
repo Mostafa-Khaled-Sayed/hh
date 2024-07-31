@@ -62,6 +62,8 @@ app.config.productionTip = false;
 const backendUrl = process.env.VUE_APP_BACKEND_URL;
 
 axios.defaults.baseURL = backendUrl;
+
+
 app({
     render: (h) => h(App),
 }).$mount("#app");
