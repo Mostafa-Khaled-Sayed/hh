@@ -88,21 +88,54 @@ export const usePhoto_Gallery = defineStore("Photo_Gallery", {
         },
 
         // Action method to upload an image to Firebase Storage
-        async upload_Image(file) {
+        // async upload_Image(file) {
+        //     if (!file) {
+        //         console.error("No file selected");
+        //         return;
+        //     }
+        //     console.log("start");
+        //     // Create a FormData object to hold the file data
+        //     const formData = new FormData();
+        //     formData.append("file", file); // Append the file with the key 'file'
+
+        //     try {
+        //         console.log("wait");
+
+        //         const response = await axios.post(
+        //             "http://localhost:3000/upload",
+        //             formData,
+        //             {
+        //                 headers: {
+        //                     "Content-Type": "multipart/form-data",
+        //                 },
+        //             }
+        //         );
+        //         console.log(
+        //             "File uploaded successfully:",
+        //             response.data.message
+        //         );
+        //         return response.data.message;
+        //     } catch (error) {
+        //         console.error("Error uploading file:", error);
+        //     }
+        //     console.log("end");
+        // },
+        async uploadImage(file) {
             if (!file) {
                 console.error("No file selected");
                 return;
             }
-            console.log("start");
-            // Create a FormData object to hold the file data
+            console.log("Upload started");
+
+            // إنشاء كائن FormData لحفظ بيانات الملف
             const formData = new FormData();
-            formData.append("file", file); // Append the file with the key 'file'
+            formData.append("file", file); // إضافة الملف باستخدام المفتاح 'file'
 
             try {
-                console.log("wait");
+                console.log("Waiting for response");
 
                 const response = await axios.post(
-                    "http://localhost:3000/upload",
+                    "/upload", // استخدم المسار النسبي لأن baseURL قد تم تعيينه
                     formData,
                     {
                         headers: {
@@ -116,9 +149,12 @@ export const usePhoto_Gallery = defineStore("Photo_Gallery", {
                 );
                 return response.data.message;
             } catch (error) {
-                console.error("Error uploading file:", error);
+                console.error(
+                    "Error uploading file:",
+                    error.response ? error.response.data : error.message
+                );
             }
-            console.log("end");
+            console.log("Upload finished");
         },
 
         // Action method to add a photo to Firestore
