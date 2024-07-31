@@ -2,14 +2,14 @@
     "name": "alseraj--almoner",
     "version": "0.1.0",
     "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "test:unit": "vue-cli-service test:unit",
-        "lint": "vue-cli-service lint",
-        "fix-lint": "eslint --fix src/**/*.{js,vue}",
-        "format": "prettier --write src/**/*.{js,vue}"
-    },
+"scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "fix-lint": "eslint --fix src/**/*.{js,vue}",
+    "format": "prettier --write src/**/*.{js,vue}"
+},
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^42.0.1",
         "@ckeditor/ckeditor5-vue": "^6.0.0",
