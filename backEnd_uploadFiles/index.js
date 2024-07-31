@@ -121,7 +121,7 @@ app.listen(port, () => {
 
 app.use(
     cors({
-        origin: "https://your-vercel-domain.vercel.app", // استبدل 'your-vercel-domain.vercel.app' بالنطاق الفعلي لمشروعك على Vercel
+        origin: "https://hh-seven-zeta.vercel.app", // استبدل 'your-vercel-domain.vercel.app' بالنطاق الفعلي لمشروعك على Vercel
         optionsSuccessStatus: 200,
     })
 );

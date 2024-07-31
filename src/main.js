@@ -17,6 +17,7 @@ import "vue-toastification/dist/index.css";
 import VTooltip from "v-tooltip";
 import mitt from "mitt";
 import Cookies from "vue-cookies"; // Import Cookies
+import axios from "axios";
 
 // Initialize Pinia
 const pinia = createPinia();
@@ -53,5 +54,16 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 } else {
     document.body.classList.add("not-pwa");
 }
+// app.mount("#app");
 
-app.mount("#app");
+// start backend
+app.config.productionTip = false;
+
+const backendUrl = process.env.VUE_APP_BACKEND_URL;
+
+axios.defaults.baseURL = backendUrl;
+
+new app({
+    render: (h) => h(App),
+}).$mount("#app");
+// end backend
