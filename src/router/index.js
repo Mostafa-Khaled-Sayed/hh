@@ -108,7 +108,7 @@ const routes = [
         path: "/student-charts",
         name: "student_charts",
         component: student_charts,
-        meta: { requiresAuth: true, requiredAuthority: "parent" },
+        // meta: { requiresAuth: true, requiredAuthority: "parent" },
     },
     {
         path: "/Add_teacher",
